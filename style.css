@@ -1,0 +1,80 @@
+:root {
+  --primary-1: #1a1a1a;
+  --primary-2: #333;
+  --primary-3: #666;
+  --font-color: #dadada;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--primary-1);
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#tableGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 50vw;
+  min-height: 100vh;
+  background-color: var(--primary-2);
+
+  div {
+    background-color: var(--primary-3);
+    margin: 20px;
+    border-radius: 10px;
+  }
+}
+
+#rightSide {
+  color: var(--font-color);
+  font-size: 1.2em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  height: 100%;
+  width: 100%;
+
+  div {
+    padding: 20px;
+  }
+
+  #task {
+    background-color: var(--primary-2);
+    font-size: 1.5em;
+  }
+
+  #console {
+    background-color: var(--primary-1);
+    color: var(--font-color);
+    height: 100%;
+    padding: 20px;
+    overflow-y: scroll;
+  }
+
+  form {
+    display: flex;
+    width: 100%;
+
+    input[type="submit"] {
+      width: 200px;
+      padding: 10px;
+      border: none;
+      background-color: var(--primary-2);
+      color: var(--font-color);
+      cursor: pointer;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: var(--primary-3);
+    }
+  }
+}
