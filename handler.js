@@ -9,10 +9,14 @@ import {
   itemTable,
   memberTable,
 } from "./elements.js";
+import tables from "./tables.js";
 
 let index = 0;
 
 const init = () => {
+  // render tables
+  renderTables();
+
   renderStory();
 
   // submit event
@@ -41,9 +45,6 @@ const renderStory = () => {
 
   // render task
   renderTask();
-
-  // render tables
-  renderTables();
 };
 
 const renderConsole = (text, type) => {
@@ -55,14 +56,10 @@ const renderConsole = (text, type) => {
 
 const renderTables = () => {
   // render tables
-  if (story[index].groupTable)
-    groupTable.innerHTML = tablify("Gruppen", story[index].groupTable);
-  if (story[index].victimTable)
-    victimTable.innerHTML = tablify("Opfer", story[index].victimTable);
-  if (story[index].itemTable)
-    itemTable.innerHTML = tablify("Gegenstand", story[index].itemTable);
-  if (story[index].memberTable)
-    memberTable.innerHTML = tablify("Mitglied", story[index].memberTable);
+  groupTable.innerHTML = tablify("Gruppen", tables.groupTable);
+  victimTable.innerHTML = tablify("Opfer", tables.victimTable);
+  itemTable.innerHTML = tablify("Gegenstände", tables.itemTable);
+  memberTable.innerHTML = tablify("Mitglieder", tables.memberTable);
 };
 
 const tablify = (title, table) => {
