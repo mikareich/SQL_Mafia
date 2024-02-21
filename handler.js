@@ -32,6 +32,10 @@ const renderNextStory = () => {
 };
 
 const renderStory = () => {
+  // console table
+  if (index !== 0)
+    consoleContainer.innerHTML += tablify("", story[index - 1].sqlResult);
+
   // render console
   renderConsole(story[index].text, "story");
 
@@ -51,14 +55,19 @@ const renderConsole = (text, type) => {
 
 const renderTables = () => {
   // render tables
-  if (story[index].groupTable) groupTable.innerHTML = tablify("Gruppen", story[index].groupTable)
-  if (story[index].victimTable) victimTable.innerHTML = tablify("Opfer", story[index].victimTable)
-  if (story[index].itemTable) itemTable.innerHTML = tablify("Gegenstand", story[index].itemTable)
-  if (story[index].memberTable) memberTable.innerHTML = tablify("Mitglied", story[index].memberTable)
+  if (story[index].groupTable)
+    groupTable.innerHTML = tablify("Gruppen", story[index].groupTable);
+  if (story[index].victimTable)
+    victimTable.innerHTML = tablify("Opfer", story[index].victimTable);
+  if (story[index].itemTable)
+    itemTable.innerHTML = tablify("Gegenstand", story[index].itemTable);
+  if (story[index].memberTable)
+    memberTable.innerHTML = tablify("Mitglied", story[index].memberTable);
 };
 
 const tablify = (title, table) => {
-  let html = `<h2>${title}</h2>`;
+  let html = "";
+  if (title !== "") html += `<h2>${title}</h2>`;
 
   if (!table) return "";
 
