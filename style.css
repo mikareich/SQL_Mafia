@@ -53,38 +53,38 @@ body {
     h2 {
       margin-left: 50px;
     }
+  }
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      border-radius: 10px;
-      overflow: hidden;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
 
-      tr:first-child {
-        background-color: var(--zinc-950);
-        color: var(--blue-600);
-        font-weight: 700;
-      }
+  tr:first-child {
+    background-color: var(--zinc-950);
+    color: var(--blue-600);
+    font-weight: 700;
+  }
 
-      td {
-        padding: 10px;
-        text-align: center;
-      }
+  td {
+    padding: 10px;
+    text-align: center;
+  }
 
-      tr:not(:first-child) {
-        background-color: var(--zinc-800);
+  tr:not(:first-child) {
+    background-color: var(--zinc-800);
 
-        &:hover {
-          background-color: var(--blue-700);
-        }
+    &:hover {
+      background-color: var(--blue-700);
+    }
 
-        &:nth-child(odd) {
-          background-color: var(--zinc-700);
+    &:nth-child(odd) {
+      background-color: var(--zinc-700);
 
-          &:hover {
-            background-color: var(--blue-600);
-          }
-        }
+      &:hover {
+        background-color: var(--blue-600);
       }
     }
   }
