@@ -50,6 +50,7 @@ const renderConsole = (text, type) => {
   consoleText.textContent = text;
   consoleText.classList.add(type);
   consoleContainer.appendChild(consoleText);
+  consoleContainer.scrollTop = consoleContainer.scrollHeight;
 };
 
 const renderTables = () => {
@@ -70,6 +71,8 @@ const tablify = (title, table) => {
 
   for (const row of table) {
     html += "<tr>";
+
+    console.log(title);
 
     for (const cell of row) {
       html += `<td>${cell}</td>`;
