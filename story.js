@@ -1,7 +1,9 @@
 export default [
   {
-    text: ["Nachdem Salvatore Martino über 12 Jahre wegen eines bewaffneten Überfalls auf einen Politiker im Gefängnis saßt, ist heute der Tag, an welchem du deine Freiheit wiedererlagnst. Du gehst auf die Straße und bewunderst, wie sehr sich die Stadt seit deiner Verhaftung verändert hat. Dein treuster Untertante aus deiner alten Gang kommt dich abholen und hilft dir, dich zurecht zu finden.",
-    "Angelo: Wow Boss, du bist jetzt also auch mal aus'm Bau. Hat ja ewig gedauert! Du glaubst gar nicht, was hier bei uns alles passiert ist. Es haben haben sich echt viele neue Gangs gebildet und die Konkurrenz ist hart! "],
+    text: [
+      "Nachdem Salvatore Martino über 12 Jahre wegen eines bewaffneten Überfalls auf einen Politiker im Gefängnis saßt, ist heute der Tag, an welchem du deine Freiheit wiedererlagnst. Du gehst auf die Straße und bewunderst, wie sehr sich die Stadt seit deiner Verhaftung verändert hat. Dein treuster Untertante aus deiner alten Gang kommt dich abholen und hilft dir, dich zurecht zu finden.",
+      "Angelo: Wow Boss, du bist jetzt also auch mal aus'm Bau. Hat ja ewig gedauert! Du glaubst gar nicht, was hier bei uns alles passiert ist. Es haben haben sich echt viele neue Gangs gebildet und die Konkurrenz ist hart! ",
+    ],
     task: `Finde heraus, welche Gruppen es alles gibt.`,
     sqlRequest: `SELECT * FROM Gruppen`,
     sqlResult: [
@@ -13,13 +15,15 @@ export default [
   },
 
   {
-    text: ["Angelo: Während deiner Abwesenheit wurden wir zurückgedrängt und nun sind ist die Ndrangheta die einflussreichste Bande der Stadt. Wir müssen unbedingt all unsere Leute versammeln, um diese Stadt wieder zu kontrollieren. Die Cosa Nostra muss wieder auferstehen!"],
+    text: [
+      "Angelo: Während deiner Abwesenheit wurden wir zurückgedrängt und nun sind ist die Ndrangheta die einflussreichste Bande der Stadt. Wir müssen unbedingt all unsere Leute versammeln, um diese Stadt wieder zu kontrollieren. Die Cosa Nostra muss wieder auferstehen!",
+    ],
     task: "Finde heraus, wer alles teil deiner Gruppe Cosa Nostra ist.",
     sqlRequest: `SELECT * FROM Mitglieder WHERE Mafiagruppe = "Cosa Nostra"`,
     sqlResult: [
       [
         "Vorname",
-        "Nachnahme",
+        "Nachname",
         "Kontostand",
         "Alter",
         "Postleitzahl",
@@ -38,14 +42,18 @@ export default [
   },
 
   {
-    text: ["Angelo: Zum Glück sind wir ja noch einige. Nun müssen wir uns aber um die wirklich wichtigen Dinge kümmern. Um das finanzielle. Wie viel Geld hast du gerade noch?"],
-    task: "Schaue nach, wie viel Geld du besitzt.",
+    text: [
+      "Angelo: Zum Glück sind wir ja noch einige. Nun müssen wir uns aber um die wirklich wichtigen Dinge kümmern. Um das finanzielle. Wie viel Geld hast du gerade noch?",
+    ],
+    task: "Schaue nach, wie viel Geld du besitzt. (Wie lautet nochmal dein Vor- und Nachname?)",
     sqlRequest: `SELECT Kontostand FROM Mitglieder WHERE Vorname = "Salvatore" AND Nachname = "Martino"`,
     sqlResult: [["Kontostand"], [0]],
   },
   {
-    text: ["Angelo: Mmm, das sieht Mau aus. Schauen wir mal, was die günstigste Waffe wäre, die wir kaufen können, um ein wenig Geld zu verdienen."],
-    task: "Schaue in der Items Tabelle nach, welche Waffe am günstigsten ist.",
+    text: [
+      "Angelo: Mmm, das sieht Mau aus. Schauen wir mal, was die günstigste Waffe wäre, die wir kaufen können, um ein wenig Geld zu verdienen.",
+    ],
+    task: "Schaue in der Items Tabelle nach, welche Waffe am günstigsten ist. (order by)",
     sqlRequest: `SELECT * FROM Items ORDER BY Preis ASC`,
     sqlResult: [
       ["WaffenID", "Name", "Stärke", "Besitzer", "Preis"],
@@ -78,14 +86,18 @@ export default [
     ],
   },
   {
-    text: ["Angelo: Nun, da wir wissen, welche Waffe wir uns leisten können, sollten wir herausfinden, wer sie besitzt."],
-    task: "Finde heraus, wer die günstigste Waffe besitzt.",
+    text: [
+      "Angelo: Nun, da wir wissen, welche Waffe wir uns leisten können, sollten wir herausfinden, wer sie besitzt.",
+    ],
+    task: "Finde heraus, wer die günstigste Waffe besitzt. (select min) ",
     sqlRequest: `SELECT Besitzer FROM Items WHERE Preis = (SELECT MIN(Preis) FROM Items)`,
     sqlResult: [["Besitzer"], ["Luca DeLucca"]],
   },
   {
-    text: ["Angelo: Es sieht so aus, als ob wir Luca DeLucca einen Besuch abstatten müssen, um ihm die Waffe abkaufen. Vorher sollten wir aber noch zum Automaten Geld holen gehen"],
-    task: "Ziehe 10 Geld von deinem Konto ab",
+    text: [
+      "Angelo: Es sieht so aus, als ob wir Luca DeLucca einen Besuch abstatten müssen, um ihm die Waffe abkaufen. Vorher sollten wir aber noch zum Automaten Geld holen gehen",
+    ],
+    task: "Ziehe 10 Geld von deinem Konto ab (update set)",
     sqlRequest: `UPDATE Mitglieder SET Kontostand = Kontostand -10 WHERE Vorname = 'Salvatore' AND Nachname = 'Martino';`,
     sqlResult: [
       [
@@ -131,7 +143,9 @@ export default [
   },
 
   {
-    text: ["Angelo: Es sieht so aus, als ob wir Luca DeLucca einen Besuch abstatten müssen, um ihm die Waffe abkaufen."],
+    text: [
+      "Angelo: Nun nun können wir Ihm diesen schäbigen Baseballschläger abkaufen. Mal schauen, was das noch wird...",
+    ],
     task: "Erhöhe Luca DeLucca's Kontostand um 10",
     sqlRequest: `UPDATE Mitglieder SET Kontostand = Kontostand + 10 WHERE Vorname = 'Luca' AND Nachname = 'DeLucca';`,
     sqlResult: [
@@ -178,9 +192,11 @@ export default [
   },
 
   {
-    text: ["Angelo: Perfekt, jetzt haben wir auch eine Waffe. Nun müssen wir weiter Geld eintreiben. Am besten schauen wir uns einmal an, auf welche Personen derzeit Kopfgeld ausgesetzt ist. "],
-    task: "Finde heraus, auf welche Personen das größte Kopfgeld ausgesetzt ist.",
-    sqlRequest: `SELECT * FROM Opfer WHERE Art = Kopfgeld GROUP BY Betrag DEC`,
+    text: [
+      "Angelo: Perfekt, jetzt haben wir auch eine Waffe. Nun müssen wir weiter Geld eintreiben. Am besten schauen wir uns einmal an, auf welche Personen derzeit Kopfgeld ausgesetzt ist. ",
+    ],
+    task: "Finde heraus, auf welche Personen das größte Kopfgeld ausgesetzt ist. (Kopfgeld oder Schutzgeld? Mmmmm)",
+    sqlRequest: `SELECT * FROM Opfer WHERE Art = Kopfgeld ODER BY Betrag DEC`,
     sqlResult: [
       ["Vorname", "Nachname", "Art", "Betrag"],
       ["Elena", "Russo", "Kopfgeld", 2030],
@@ -192,14 +208,18 @@ export default [
   },
 
   {
-    text: ["Angelo: Das war super! Schon lange konnten wir keine Person mehr so leicht ausschalten!"],
-    task: "Lösche Elena Russo aus der Liste und erhöhe dein Geld um 4000",
+    text: [
+      "Angelo: Das war super! Schon lange konnten wir keine Person mehr so leicht ausschalten!",
+    ],
+    task: "Lösche Elena Russo aus der Liste. (delete from)",
     sqlRequest: `DELETE FROM Opfer WHERE Name = "Elena" AND Nachname = "Russo"`,
     sqlResult: [["Besitzer"], ["Isabella Rossi"]],
   },
   {
-    text: ["Angelo: Ey, hier ist sogar noch ein richtiger Batzen Geld in ihrer Tasche! Da haben wir ja richtig glück gehabt!"],
-    task: "Erhöhe dein Geld um 8000",
+    text: [
+      "Angelo: Ey, hier ist sogar noch ein richtiger Batzen Geld in ihrer Tasche! Da haben wir ja richtig glück gehabt!",
+    ],
+    task: "Erhöhe dein Geld um 8000. (rekursive attribute)",
     sqlRequest: `UPDATE Mitglieder SET Kontostand = Kontostand + 8000 WHERE Vorname = 'Salvatore' AND Nachname = 'Martino';`,
     sqlResult: [
       [
@@ -244,10 +264,11 @@ export default [
     ],
   },
   {
-    text: ["Angelo: BOSS! Ich habe gerade die Nachricht bekommen, dass unsere Jungs und Mädels einen Straßenkampf gegen die Camorra gewinnen konnten! Sie flihen woll jetzt aus der Stadt!"],
-    task: "Lösche alle Gangster, die der Camerra Gruppe angehörten und entferne sie aus der Gruppen Tabelle!",
-    sqlRequest: `DELETE FROM Mitglieder WHERE Mafiagruppe  = Camorra
-                 DELETE FROM Gruppen WHERE Name = 'Camorra';`,
+    text: [
+      "Angelo: BOSS! Ich habe gerade die Nachricht bekommen, dass unsere Jungs und Mädels einen Straßenkampf gegen die Camorra gewinnen konnten! Sie flihen woll jetzt aus der Stadt!",
+    ],
+    task: "Lösche alle Gangster, die der Camerra Gruppe angehörten!",
+    sqlRequest: `DELETE FROM Mitglieder WHERE Mafiagruppe  = Camorra`,
     sqlResult: [
       [
         "Vorname",
@@ -283,12 +304,25 @@ export default [
     ],
   },
   {
-    text: ["Angelo: Wir konnten das komplette Ehmalige Gebiet der Camerros einnehmen! Endlich sind wir wieder die erfolgreichste Mafia Gruppe in der Stadt! Alles nur dank deinem Einsatz Boss!"],
-    task: "Lösche Elena Russo aus der Liste und erhöhe dein Geld um 4000",
+    task: "Nun korriegere das Gebietsanteil der Camorra",
+    sqlRequest: `UPDATE Gruppen SET Gebietsanteil = 0 WHERE Name = Camorra";`,
+    sqlResult: [
+      ["Name", "Anführer", "Gebietsanteil"],
+      ["Cosa Nostra", "Salvatore Martino", 25],
+      ["Ndrangheta", "matteo Esposito", 40],
+    ],
+  },
+  {
+    text: [
+      "Angelo: Wir konnten das komplette Ehmalige Gebiet der Camerros einnehmen! Endlich sind wir wieder die erfolgreichste Mafia Gruppe in der Stadt! Alles nur dank deinem Einsatz Boss!",
+    ],
+    task: "Erhöhe dein Gebietsanteil auf die 60%!",
     sqlRequest: `UPDATE Gruppen SET Gebietsanteil = 60 WHERE Name = Cosa Nostra";`,
     sqlResult: [["Besitzer"], ["Isabella Rossi"]],
   },
   {
-    text: ["Vielen Dank fürs spielen! Wir hoffen, ihr habt ein wenig was gelernt, während ihr eure Mafia Gruppe an die Spitze führt! Marco und Mathis"],
+    text: [
+      "Vielen Dank fürs spielen! Wir hoffen, ihr habt ein wenig was gelernt, während ihr eure Mafia Gruppe an die Spitze führt! Marco und Mathis",
+    ],
   },
 ];

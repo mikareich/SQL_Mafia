@@ -26,11 +26,19 @@ const init = () => {
     if (textArea.value === story[index].sqlRequest) renderNextStory();
     else renderConsole("Falsche Antwort", "error");
   });
+
+  textArea.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+
+    if (textArea.value === story[index].sqlRequest) renderNextStory();
+    else renderConsole("Falsche Antwort", "error");
+  });
 };
 
 const renderNextStory = () => {
   index++;
   renderStory();
+  textArea.value = "";
 };
 
 const renderStory = () => {
