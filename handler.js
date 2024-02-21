@@ -56,7 +56,7 @@ const renderTables = () => {
   // render tables
   groupTable.innerHTML = tablify("Gruppen", tables.groupTable);
   victimTable.innerHTML = tablify("Opfer", tables.victimTable);
-  itemTable.innerHTML = tablify("Gegenstände", tables.itemTable);
+  itemTable.innerHTML = tablify("Items", tables.itemTable);
   memberTable.innerHTML = tablify("Mitglieder", tables.memberTable);
 };
 
