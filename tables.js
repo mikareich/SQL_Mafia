@@ -24,6 +24,7 @@ export default {
     ["Alter", "int"],
     ["Geld", "int"],
     ["Wohnort", "char"],
+    ["Mafiagruppe", "char"]
     ["Lebendig", "bool"],
     ["GangstaID", "int"],
   ],
