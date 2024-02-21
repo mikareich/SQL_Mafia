@@ -1,10 +1,12 @@
 export default {
   groupTable: [
+    ["Attribute", "Datentyp"],
     ["Name", "char"],
     ["Anführer", "char"],
     ["Gebietsanteil", "float"],
   ],
   victimTable: [
+    ["Attribute", "Datentyp"],
     ["Name", "char"],
     ["Vorname", "char"],
     ["Lebendig", "bool"],
@@ -12,6 +14,7 @@ export default {
     ["Schutzgeld", "int"],
   ],
   itemTable: [
+    ["Attribute", "Datentyp"],
     ["Name", "char"],
     ["Besitzer", "char"],
     ["Stärke", "int"],
@@ -19,6 +22,7 @@ export default {
     ["ItemID", "int"],
   ],
   memberTable: [
+    ["Attribute", "Datentyp"],
     ["Name", "char"],
     ["Vorname", "char"],
     ["Alter", "int"],

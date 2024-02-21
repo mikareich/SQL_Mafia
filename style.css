@@ -61,12 +61,6 @@ body {
       color: var(--primary-2);
     }
   }
-
-  table tr:first-child {
-    background-color: var(--dark-3) !important;
-    color: var(--font-color);
-    font-weight: normal;
-  }
 }
 
 table {
@@ -80,7 +74,7 @@ table {
     text-align: center;
   }
 
-  tr:not(:first-child) {
+  tr {
     background-color: var(--dark-3);
 
     &:hover {
