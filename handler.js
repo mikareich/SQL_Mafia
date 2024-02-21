@@ -51,18 +51,10 @@ const renderConsole = (text, type) => {
 
 const renderTables = () => {
   // render tables
-  groupTable.innerHTML = story[index].groupTable
-    ? tablify("Gruppen", story[index].groupTable)
-    : "";
-  victimTable.innerHTML = story[index].victimTable
-    ? tablify("Opfer", story[index].victimTable)
-    : "";
-  itemTable.innerHTML = story[index].itemTable
-    ? tablify("Gegenstand", story[index].itemTable)
-    : "";
-  memberTable.innerHTML = story[index].memberTable
-    ? tablify("Mitglied", story[index].memberTable)
-    : "";
+  if (story[index].groupTable) groupTable.innerHTML = tablify("Gruppen", story[index].groupTable)
+  if (story[index].victimTable) victimTable.innerHTML = tablify("Opfer", story[index].victimTable)
+  if (story[index].itemTable) itemTable.innerHTML = tablify("Gegenstand", story[index].itemTable)
+  if (story[index].memberTable) memberTable.innerHTML = tablify("Mitglied", story[index].memberTable)
 };
 
 const tablify = (title, table) => {
