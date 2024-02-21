@@ -31,6 +31,7 @@ const init = () => {
 const renderNextStory = () => {
   index++;
   renderStory();
+  textArea.value = "";
 };
 
 const renderStory = () => {
