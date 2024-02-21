@@ -33,7 +33,7 @@ const renderNextStory = () => {
 
 const renderStory = () => {
   // render console
-  renderConsole(story[index].text);
+  renderConsole(story[index].text, "story");
 
   // render task
   renderTask();
@@ -42,9 +42,10 @@ const renderStory = () => {
   renderTables();
 };
 
-const renderConsole = (text) => {
+const renderConsole = (text, type) => {
   const consoleText = document.createElement("p");
   consoleText.textContent = text;
+  consoleText.classList.add(type);
   consoleContainer.appendChild(consoleText);
 };
 
@@ -91,7 +92,7 @@ const renderTask = () => {
   taskContainer.innerHTML = story[index].task;
 
   // render console
-  renderConsole(story[index].task);
+  renderConsole(story[index].task, "task");
 };
 
 export { init, renderNextStory, renderStory, renderConsole, renderTask };

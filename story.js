@@ -1,6 +1,6 @@
 export default [
   {
-    text: `Damals war deine Mafia die größte der Stadt, dann bist du, ${name}, ins Gefängnis gekommen. jetzt bist du wieder draußen und musst die Stadt wiedererobern.`,
+    text: `Damals war deine Mafia die größte der Stadt, dann bist du ins Gefängnis gekommen. Jetzt bist du wieder draußen und musst die Stadt wiedererobern.`,
     task: `Finde heraus, welche Gruppen sich gebildet haben.`,
     sqlRequest: `SELECT * FROM Gruppen`,
     sqlResult: ``,
