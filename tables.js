@@ -26,7 +26,7 @@ export default {
     ["Name", "char"],
     ["Vorname", "char"],
     ["Alter", "int"],
-    ["Geld", "int"],
+    ["Kontostand", "int"],
     ["Wohnort", "char"],
     ["Mafiagruppe", "char"],
     ["Lebendig", "bool"],
