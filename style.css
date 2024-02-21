@@ -1,11 +1,12 @@
 :root {
-  --zinc-950: #1a2632;
-  --zinc-900: #2b364e;
-  --zinc-800: #39455e;
-  --zinc-700: #4f5f76;
+  --dark-1: #272727;
+  --dark-2: #3c3c3c;
+  --dark-3: #525252;
+  --dark-4: #696969;
   --font-color: #f4f4f5;
-  --blue-700: #1d4ed8;
-  --blue-600: #2563eb;
+  --primary-1: #325c80; /* Adjusted primary color */
+  --primary-2: #2563eb;
+  --alert: #c85151;
 }
 
 /* scroll bar */
@@ -14,7 +15,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--blue-600);
+  background-color: var(--primary-2);
   border-radius: 15px;
 }
 
@@ -35,16 +36,10 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: var(--zinc-900);
+  background-color: var(--dark-2);
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-
-  /* testwise aber schon bangern */
-  background-image: url("https://media.discordapp.net/attachments/925777049673662488/1209915815961567282/image.png?ex=65e8a8e9&is=65d633e9&hm=2baaee28285aaec216ccee06650bb140b4afc6bb44a79b0ebc0e99dfe35a2132&=&format=webp&quality=lossless");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
 }
 
 #tableGrid {
@@ -54,7 +49,7 @@ body {
   width: 50vw;
   min-height: 100vh;
   color: var(--font-color);
-  background-color: var(--zinc-925);
+  background-color: var(--dark-925);
 
   div {
     place-self: center;
@@ -75,8 +70,8 @@ table {
   overflow: hidden;
 
   tr:first-child {
-    background-color: var(--zinc-950);
-    color: var(--blue-600);
+    background-color: var(--dark-1);
+    color: var(--primary-2);
     font-weight: 700;
   }
 
@@ -86,17 +81,17 @@ table {
   }
 
   tr:not(:first-child) {
-    background-color: var(--zinc-800);
+    background-color: var(--dark-3);
 
     &:hover {
-      background-color: var(--blue-700);
+      background-color: var(--primary-1);
     }
 
     &:nth-child(odd) {
-      background-color: var(--zinc-700);
+      background-color: var(--dark-4);
 
       &:hover {
-        background-color: var(--blue-600);
+        background-color: var(--primary-2);
       }
     }
   }
@@ -113,13 +108,14 @@ table {
   width: 100%;
 
   #task {
-    background-color: var(--zinc-950);
+    background-color: var(--dark-1);
     font-size: 1.5em;
     padding: 20px;
-    margin-top: 20px;
+    margin: 20px 0;
     text-align: center;
     border-radius: 10px;
-    color: var(--blue-600);
+    color: var(--primary-2);
+    overflow: hidden;
   }
 
   table {
@@ -135,26 +131,34 @@ table {
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
+    max-height: calc(100vh - 300px);
 
     .story {
       margin: 10px;
       padding: 10px;
       border-radius: 10px;
-      background-color: var(--zinc-700);
+      background-color: var(--dark-4);
     }
 
     .task {
       margin: 10px;
       padding: 10px;
       border-radius: 10px;
-      background-color: var(--blue-600);
+      background-color: var(--primary-2);
+    }
+
+    .error {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: var(--alert);
     }
   }
 
   form {
     display: flex;
     width: 90%;
-    margin-bottom: 20px;
+    margin: 20px 0;
     border-radius: 10px;
 
     input[type="submit"] {
@@ -162,17 +166,17 @@ table {
       width: 200px;
       padding: 10px;
       border: none;
-      background-color: var(--blue-700);
+      background-color: var(--primary-1);
       color: var(--font-color);
       cursor: pointer;
       border-radius: 0 10px 10px 0;
 
       &:hover {
-        background-color: var(--blue-600);
+        background-color: var(--primary-2);
       }
 
       &:active {
-        background-color: var(--blue-700);
+        background-color: var(--primary-1);
       }
     }
 
@@ -182,13 +186,13 @@ table {
       width: 100%;
       padding: 25px;
       border: none;
-      background-color: var(--zinc-800);
+      background-color: var(--dark-3);
       color: var(--font-color);
       resize: none;
 
       &:focus {
         outline: none;
-        background-color: var(--zinc-700);
+        background-color: var(--dark-4);
       }
     }
   }

@@ -26,6 +26,8 @@ const init = () => {
     // check if textArea is correct
     if (textArea.value === story[index].sqlRequest) renderNextStory();
 
+    else renderConsole("Falsche Antwort", "error");
+
     e.preventDefault();
   });
 };
