@@ -21,13 +21,10 @@ const init = () => {
 
   // submit event
   form.addEventListener("submit", (e) => {
-    console.log(textArea.value, story[index].sqlRequest);
+    e.preventDefault();
 
-    // check if textArea is correct
     if (textArea.value === story[index].sqlRequest) renderNextStory();
     else renderConsole("Falsche Antwort", "error");
-
-    e.preventDefault();
   });
 };
 
@@ -42,7 +39,7 @@ const renderStory = () => {
     consoleContainer.innerHTML += tablify("", story[index - 1].sqlResult);
 
   // render console
-  story[index].text.forEach((text) => renderConsole(text, "text"));
+  story[index].text.forEach((text) => renderConsole(text, "story"));
 
   // render task
   renderTask();
